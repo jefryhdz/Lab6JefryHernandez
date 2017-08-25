@@ -1,9 +1,11 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Jefry Hernandez
@@ -26,6 +28,48 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_casa = new javax.swing.JDialog();
+        tf_nombrecasa = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta_casa = new javax.swing.JTextArea();
+        jp_nivelcasa = new javax.swing.JSpinner();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jd_cancha = new javax.swing.JDialog();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jt_nombrecan = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        ta_direccioncan = new javax.swing.JTextArea();
+        jLabel13 = new javax.swing.JLabel();
+        sp_seguridadcan = new javax.swing.JSpinner();
+        jLabel14 = new javax.swing.JLabel();
+        cb_categoriacan = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        rb_libre = new javax.swing.JRadioButton();
+        rb_ocupado = new javax.swing.JRadioButton();
+        jButton3 = new javax.swing.JButton();
+        jd_carretera = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jd_restaurante = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ta_direccionresta = new javax.swing.JTextArea();
+        jp_nivelres = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        tf_nombreres = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        cb_categoriares = new javax.swing.JComboBox<>();
+        rbg_estado = new javax.swing.ButtonGroup();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -34,14 +78,332 @@ public class Principal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
+        jLabel1.setText("Creacion de casa");
+
+        jLabel2.setText("Nombre");
+
+        jLabel3.setText("Direccion");
+
+        ta_casa.setColumns(20);
+        ta_casa.setRows(5);
+        jScrollPane1.setViewportView(ta_casa);
+
+        jp_nivelcasa.setModel(new javax.swing.SpinnerNumberModel(1, 0, 5, 1));
+        jp_nivelcasa.setAutoscrolls(true);
+
+        jLabel4.setText("Nivel de seguridad");
+
+        jButton1.setText("Crear");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_casaLayout = new javax.swing.GroupLayout(jd_casa.getContentPane());
+        jd_casa.getContentPane().setLayout(jd_casaLayout);
+        jd_casaLayout.setHorizontalGroup(
+            jd_casaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_casaLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jd_casaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_casaLayout.createSequentialGroup()
+                        .addGroup(jd_casaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(52, 52, 52)
+                        .addGroup(jd_casaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_nombrecasa, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd_casaLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(34, 34, 34)
+                        .addGroup(jd_casaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(jp_nivelcasa, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(127, Short.MAX_VALUE))
+        );
+        jd_casaLayout.setVerticalGroup(
+            jd_casaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_casaLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27)
+                .addGroup(jd_casaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_nombrecasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGroup(jd_casaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_casaLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3))
+                    .addGroup(jd_casaLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(16, 16, 16)
+                .addGroup(jd_casaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jp_nivelcasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(32, 32, 32))
+        );
+
+        jLabel10.setText("Creacion de cancha");
+
+        jLabel11.setText("Nombre");
+
+        jLabel12.setText("Direccion");
+
+        ta_direccioncan.setColumns(20);
+        ta_direccioncan.setRows(5);
+        jScrollPane3.setViewportView(ta_direccioncan);
+
+        jLabel13.setText("Nivel de seguridad");
+
+        sp_seguridadcan.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5, 1));
+
+        jLabel14.setText("Categoria");
+
+        cb_categoriacan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Football", "Basquet", "Tennis", "Volley" }));
+
+        jLabel15.setText("Estado");
+
+        rbg_estado.add(rb_libre);
+        rb_libre.setText("Libre");
+
+        rbg_estado.add(rb_ocupado);
+        rb_ocupado.setText("Ocupado");
+
+        jButton3.setText("Crear");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_canchaLayout = new javax.swing.GroupLayout(jd_cancha.getContentPane());
+        jd_cancha.getContentPane().setLayout(jd_canchaLayout);
+        jd_canchaLayout.setHorizontalGroup(
+            jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_canchaLayout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(jButton3)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jd_canchaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_canchaLayout.createSequentialGroup()
+                            .addGap(117, 117, 117)
+                            .addComponent(cb_categoriacan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel14))
+                    .addGroup(jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel10)
+                            .addGroup(jd_canchaLayout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(43, 43, 43)
+                                .addComponent(jt_nombrecan, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jd_canchaLayout.createSequentialGroup()
+                            .addComponent(jLabel12)
+                            .addGap(37, 37, 37)
+                            .addGroup(jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jd_canchaLayout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addGap(29, 29, 29)
+                                    .addComponent(sp_seguridadcan, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jd_canchaLayout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(27, 27, 27)
+                        .addComponent(rb_libre)
+                        .addGap(18, 18, 18)
+                        .addComponent(rb_ocupado)))
+                .addContainerGap(144, Short.MAX_VALUE))
+        );
+        jd_canchaLayout.setVerticalGroup(
+            jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_canchaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addGap(23, 23, 23)
+                .addGroup(jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jt_nombrecan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(sp_seguridadcan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(cb_categoriacan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_canchaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(rb_libre)
+                    .addComponent(rb_ocupado))
+                .addGap(31, 31, 31)
+                .addComponent(jButton3))
+        );
+
+        jLabel16.setText("Crear carretera");
+
+        jLabel17.setText("Codigo");
+
+        jLabel18.setText(cont+"");
+
+        javax.swing.GroupLayout jd_carreteraLayout = new javax.swing.GroupLayout(jd_carretera.getContentPane());
+        jd_carretera.getContentPane().setLayout(jd_carreteraLayout);
+        jd_carreteraLayout.setHorizontalGroup(
+            jd_carreteraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_carreteraLayout.createSequentialGroup()
+                .addGroup(jd_carreteraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_carreteraLayout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jLabel16))
+                    .addGroup(jd_carreteraLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel17)
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(199, Short.MAX_VALUE))
+        );
+        jd_carreteraLayout.setVerticalGroup(
+            jd_carreteraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_carreteraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addGap(31, 31, 31)
+                .addGroup(jd_carreteraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(230, Short.MAX_VALUE))
+        );
+
+        jLabel5.setText("Nombre");
+
+        jLabel6.setText("Direccion");
+
+        ta_direccionresta.setColumns(20);
+        ta_direccionresta.setRows(5);
+        jScrollPane2.setViewportView(ta_direccionresta);
+
+        jp_nivelres.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        jp_nivelres.setAutoscrolls(true);
+
+        jLabel7.setText("Nivel de seguridad");
+
+        jButton2.setText("Crear");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        jLabel8.setText("Creacion de restaurante");
+
+        jLabel9.setText("Categoria");
+
+        cb_categoriares.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chino", "Mexicano", "Italiano", "Comida Rapido" }));
+        cb_categoriares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_categoriaresActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_restauranteLayout = new javax.swing.GroupLayout(jd_restaurante.getContentPane());
+        jd_restaurante.getContentPane().setLayout(jd_restauranteLayout);
+        jd_restauranteLayout.setHorizontalGroup(
+            jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_restauranteLayout.createSequentialGroup()
+                .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jd_restauranteLayout.createSequentialGroup()
+                            .addGap(107, 107, 107)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jd_restauranteLayout.createSequentialGroup()
+                            .addGap(56, 56, 56)
+                            .addComponent(jLabel9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb_categoriares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd_restauranteLayout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(jButton2)))
+                .addContainerGap(165, Short.MAX_VALUE))
+            .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_restauranteLayout.createSequentialGroup()
+                    .addGap(54, 54, 54)
+                    .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_restauranteLayout.createSequentialGroup()
+                            .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(52, 52, 52)
+                            .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tf_nombreres, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jd_restauranteLayout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addGap(34, 34, 34)
+                            .addComponent(jp_nivelres, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(55, Short.MAX_VALUE)))
+        );
+        jd_restauranteLayout.setVerticalGroup(
+            jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_restauranteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(cb_categoriares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jButton2)
+                .addGap(27, 27, 27))
+            .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_restauranteLayout.createSequentialGroup()
+                    .addGap(48, 48, 48)
+                    .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tf_nombreres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5))
+                    .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_restauranteLayout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel6))
+                        .addGroup(jd_restauranteLayout.createSequentialGroup()
+                            .addGap(8, 8, 8)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(16, 16, 16)
+                    .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jp_nivelres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7))
+                    .addContainerGap(114, Short.MAX_VALUE)))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu3.setText("Crear Lugar");
 
         jMenuItem1.setText("Casa");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem1);
 
         jMenuItem2.setText("Restaurante");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem2);
 
         jMenuItem3.setText("Cancha");
@@ -71,6 +433,70 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        String nombre = tf_nombrecasa.getText();
+        String direccion = ta_casa.getText();
+        int seguridad = (Integer) jp_nivelcasa.getValue();
+        Casa c = new Casa(nombre, direccion, seguridad);
+        tf_nombrecasa.setText("");
+        ta_casa.setText("");
+        jp_nivelcasa.setValue((Integer) 1);
+        JOptionPane.showMessageDialog(this, "Se ha creado con exito");
+        jd_casa.dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        String nombre = tf_nombreres.getText();
+        String direccion = ta_direccionresta.getText();
+        int seguridad = (Integer) jp_nivelres.getValue();
+        String categoria = cb_categoriares.getSelectedItem().toString();
+        Restaurante c = new Restaurante(categoria, nombre, direccion, seguridad);
+        tf_nombreres.setText("");
+        ta_direccionresta.setText("");
+        jp_nivelres.setValue((Integer) 1);
+        JOptionPane.showMessageDialog(this, "Se ha creado con exito");
+        jd_restaurante.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void cb_categoriaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_categoriaresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_categoriaresActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        String nombre = jt_nombrecan.getText();
+        String direccion = ta_direccioncan.getText();
+        int seguridad = (Integer) sp_seguridadcan.getValue();
+        String categoria = cb_categoriacan.getSelectedItem().toString();
+        cancha c = new cancha(categoria, nombre, direccion, seguridad);
+        jt_nombrecan.setText("");
+        ta_direccioncan.setText("");
+        sp_seguridadcan.setValue((Integer) 1);
+        JOptionPane.showMessageDialog(this, "Se ha creado con exito");
+        jd_cancha.dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        jd_casa.setModal(true);
+        jd_casa.pack();
+        jd_casa.setLocationRelativeTo(this);
+        jd_casa.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+
+        jd_restaurante.setModal(true);
+        jd_restaurante.pack();
+        jd_restaurante.setLocationRelativeTo(this);
+        jd_restaurante.setVisible(true);
+
+
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,6 +534,29 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cb_categoriacan;
+    private javax.swing.JComboBox<String> cb_categoriares;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
@@ -115,5 +564,25 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JDialog jd_cancha;
+    private javax.swing.JDialog jd_carretera;
+    private javax.swing.JDialog jd_casa;
+    private javax.swing.JDialog jd_restaurante;
+    private javax.swing.JSpinner jp_nivelcasa;
+    private javax.swing.JSpinner jp_nivelres;
+    private javax.swing.JTextField jt_nombrecan;
+    private javax.swing.JRadioButton rb_libre;
+    private javax.swing.JRadioButton rb_ocupado;
+    private javax.swing.ButtonGroup rbg_estado;
+    private javax.swing.JSpinner sp_seguridadcan;
+    private javax.swing.JTextArea ta_casa;
+    private javax.swing.JTextArea ta_direccioncan;
+    private javax.swing.JTextArea ta_direccionresta;
+    private javax.swing.JTextField tf_nombrecasa;
+    private javax.swing.JTextField tf_nombreres;
     // End of variables declaration//GEN-END:variables
+int cont = 1;
 }
