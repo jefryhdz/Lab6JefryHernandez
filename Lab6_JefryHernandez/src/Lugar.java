@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,6 +15,8 @@ public class Lugar {
     private String nombre;
     private String direccion;
     private int security;
+      private ArrayList <Carretera> entradas =new ArrayList();
+    private ArrayList<Carretera> Salidas = new ArrayList() ;
 
     public Lugar(String nombre, String direccion, int security) {
         this.nombre = nombre;
@@ -42,7 +47,25 @@ public class Lugar {
     public void setSecurity(int security) {
         this.security = security;
     }
-    
+
+    public ArrayList<Carretera> getEntradas() {
+        return entradas;
+    }
+
+    public void setEntradas(ArrayList<Carretera> entradas) {
+        this.entradas = entradas;
+    }
+
+    public ArrayList<Carretera> getSalidas() {
+        return Salidas;
+    }
+
+    public void setSalidas(ArrayList<Carretera> Salidas) {
+        this.Salidas = Salidas;
+    }
+
+
+  
     
     
 }
