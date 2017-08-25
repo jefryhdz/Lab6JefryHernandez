@@ -82,6 +82,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         cb_categoriares = new javax.swing.JComboBox<>();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel23 = new javax.swing.JLabel();
         rbg_estado = new javax.swing.ButtonGroup();
         jd_jtree = new javax.swing.JDialog();
         jLabel22 = new javax.swing.JLabel();
@@ -105,7 +107,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         jLabel1.setText("Creacion de casa");
 
@@ -404,6 +406,10 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5, 1));
+
+        jLabel23.setText("Calificacion");
+
         javax.swing.GroupLayout jd_restauranteLayout = new javax.swing.GroupLayout(jd_restaurante.getContentPane());
         jd_restaurante.getContentPane().setLayout(jd_restauranteLayout);
         jd_restauranteLayout.setHorizontalGroup(
@@ -423,6 +429,12 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(176, 176, 176)
                         .addComponent(jButton2)))
                 .addContainerGap(165, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_restauranteLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73))
             .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jd_restauranteLayout.createSequentialGroup()
                     .addGap(54, 54, 54)
@@ -446,7 +458,11 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jd_restauranteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
+                .addGap(11, 11, 11)
                 .addGroup(jd_restauranteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(cb_categoriares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -629,10 +645,20 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem5);
 
         jMenuItem6.setText("JList");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem6);
 
-        jMenu2.setText("JTable");
-        jMenu1.add(jMenu2);
+        jMenuItem7.setText("jtable");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem7);
 
         jMenuBar1.add(jMenu1);
 
@@ -646,7 +672,7 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 281, Short.MAX_VALUE)
         );
 
         pack();
@@ -684,7 +710,8 @@ public class Principal extends javax.swing.JFrame {
             String direccion = ta_direccionresta.getText();
             int seguridad = (Integer) jp_nivelres.getValue();
             String categoria = cb_categoriares.getSelectedItem().toString();
-            Restaurante c = new Restaurante(categoria, nombre, direccion, seguridad);
+            int calificaion = (int) jSpinner1.getValue();
+            Restaurante c = new Restaurante(categoria, calificaion, nombre, direccion, seguridad);
             tf_nombreres.setText("");
             ta_direccionresta.setText("");
             jp_nivelres.setValue((Integer) 1);
@@ -832,7 +859,7 @@ public class Principal extends javax.swing.JFrame {
     private void cb_jtreeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_jtreeItemStateChanged
         if (evt.getStateChange() == 1) {
             DefaultTreeModel model = (DefaultTreeModel) jt_listar.getModel();
-            DefaultMutableTreeNode nodo = (DefaultMutableTreeNode)model.getRoot();
+            DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) model.getRoot();
             nodo.removeAllChildren();
         }
         if (evt.getStateChange() == 2) {
@@ -897,17 +924,73 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void cb_jtableItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_jtableItemStateChanged
-        if (evt.getStateChange()==2) {
-            DefaultTableModel model = (DefaultTableModel)jt_tabla.getModel();
-            if (cb_jtable.getSelectedItem().equals("Restaurate")) {
-                for (int i = 0; i < 6; i++) {
-                    model.addColumn("Nombre");
+        if (evt.getStateChange() == 2) {
+            DefaultTableModel model = (DefaultTableModel) jt_tabla.getModel();
+            if (cb_jtable.getSelectedItem().equals("Restaurante")) {
+                model.setColumnCount(0);
+                model.addColumn("Nombre");
+                model.addColumn("Direccion");
+                model.addColumn("Seguridad");
+                model.addColumn("Categoria");
+                model.addColumn("Calificacion");
+                model.addColumn("Entrada");
+                model.addColumn("Salida");
+                for (Lugar s : lista) {
+                    if (s instanceof Restaurante) {
+                        Object[] row = {s.getNombre(),s.getDireccion(),s.getSecurity(),((Restaurante) s).getCategoria(),((Restaurante) s).getCalificacion(),s.getEntradas(),s.getSalidas()};
+                        model.addRow(row);
+                    }
                 }
-                
+
+            }
+            if (cb_jtable.getSelectedItem().equals("Cancha")) {
+                model.setColumnCount(0);
+                model.addColumn("Nombre");
+                model.addColumn("Direccion");
+                model.addColumn("Seguridad");
+                model.addColumn("Categoria");
+                model.addColumn("Estado");
+                model.addColumn("Entrada");
+                model.addColumn("Salida");
+                for (Lugar s : lista) {
+                    if (s instanceof cancha) {
+                        Object[] row = {s.getNombre(),s.getDireccion(),((cancha) s).getCategoria(),((cancha) s).getEstado(),s.getEntradas(),s.getSalidas()};
+                        model.addRow(row);
+                    }
+                }
+            }
+            if (cb_jtable.getSelectedItem().equals("Carretera")) {
+                model.addColumn("Codigo");
+                model.addColumn("Distancia");
+                model.addColumn("Inicio");
+                model.addColumn("Fin");
+                for (Object s : listac) {
+                    if (s instanceof Carretera) {
+                        
+                    }
+                }
             }
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_jtableItemStateChanged
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        jd_jtable.setModal(true);
+        jd_jtable.pack();
+        jd_jtable.setLocationRelativeTo(this);
+        jd_jtable.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        jd_jtable.setModal(true);
+        jd_jtable.pack();
+        jd_jtable.setLocationRelativeTo(this);
+        jd_jtable.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -971,6 +1054,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -979,7 +1063,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -988,6 +1071,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -995,6 +1079,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTree jTree1;
     private javax.swing.JDialog jd_cancha;
     private javax.swing.JDialog jd_carretera;
