@@ -680,6 +680,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(carret);
 
         jMenu1.setText("Listar");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItem5.setText("JTree");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -859,7 +864,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void cb_inicioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_inicioItemStateChanged
         cb_termina.removeAllItems();
-        if (evt.getStateChange() !=2) {
+        if (evt.getStateChange() != 2) {
             Lugar c = (Lugar) cb_inicio.getSelectedItem();
             DefaultComboBoxModel model = (DefaultComboBoxModel) cb_termina.getModel();
             for (Lugar li : lista) {
@@ -1037,23 +1042,32 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-      jd_list.setModal(true);
-      jd_list.pack();
-      jd_list.setLocationRelativeTo(this);
-      jd_list.setVisible(true);
+
+        jd_list.setModal(true);
+        jd_list.pack();
+        jd_list.setLocationRelativeTo(this);
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cb_list.getModel();
+        for (Lugar lugar : lista) {
+model.addElement(lugar);
+        }
+        jd_list.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void cb_listItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_listItemStateChanged
-        DefaultListModel model = (DefaultListModel)jl_List.getModel();
-        Lugar c = (Lugar)cb_list.getSelectedItem();
-        ArrayList <Carretera>cd = c.getEntradas();
+        DefaultListModel model = (DefaultListModel) jl_List.getModel();
+        Lugar c = (Lugar) cb_list.getSelectedItem();
+        ArrayList<Carretera> cd = c.getEntradas();
         for (Carretera xc : cd) {
-            if (xc.getDistancia()<=50) {
+            if (xc.getDistancia() <= 50) {
                 model.addElement(xc);
             }
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_listItemStateChanged
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
 
     /**
      * @param args the command line arguments
