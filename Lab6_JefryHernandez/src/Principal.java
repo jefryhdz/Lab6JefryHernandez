@@ -97,6 +97,11 @@ public class Principal extends javax.swing.JFrame {
         cb_jtable = new javax.swing.JComboBox<>();
         jScrollPane6 = new javax.swing.JScrollPane();
         jt_tabla = new javax.swing.JTable();
+        jd_list = new javax.swing.JDialog();
+        cb_list = new javax.swing.JComboBox<>();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jl_List = new javax.swing.JList<>();
+        jLabel24 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -491,7 +496,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel22.setText("Escoja el lugar");
 
-        cb_jtree.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cancha", "Restaurante" }));
+        cb_jtree.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cancha", "Restaurante", "Carretera" }));
         cb_jtree.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cb_jtreeItemStateChanged(evt);
@@ -591,6 +596,46 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        cb_list.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_listItemStateChanged(evt);
+            }
+        });
+
+        jScrollPane7.setViewportView(jl_List);
+
+        jLabel24.setText("Listar");
+
+        javax.swing.GroupLayout jd_listLayout = new javax.swing.GroupLayout(jd_list.getContentPane());
+        jd_list.getContentPane().setLayout(jd_listLayout);
+        jd_listLayout.setHorizontalGroup(
+            jd_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listLayout.createSequentialGroup()
+                .addContainerGap(129, Short.MAX_VALUE)
+                .addGroup(jd_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listLayout.createSequentialGroup()
+                        .addComponent(cb_list, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(136, 136, 136))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listLayout.createSequentialGroup()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98))))
+        );
+        jd_listLayout.setVerticalGroup(
+            jd_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(cb_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu3.setText("Crear Lugar");
@@ -644,7 +689,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem5);
 
-        jMenuItem6.setText("JList");
+        jMenuItem6.setText("JTable");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -652,7 +697,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem6);
 
-        jMenuItem7.setText("jtable");
+        jMenuItem7.setText("JList");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -814,7 +859,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void cb_inicioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_inicioItemStateChanged
         cb_termina.removeAllItems();
-        if (evt.getStateChange() == 2) {
+        if (evt.getStateChange() !=2) {
             Lugar c = (Lugar) cb_inicio.getSelectedItem();
             DefaultComboBoxModel model = (DefaultComboBoxModel) cb_termina.getModel();
             for (Lugar li : lista) {
@@ -825,6 +870,7 @@ public class Principal extends javax.swing.JFrame {
 
                 }
             }
+            cb_termina.setModel(model);
         }
 
 
@@ -925,7 +971,11 @@ public class Principal extends javax.swing.JFrame {
 
     private void cb_jtableItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_jtableItemStateChanged
         if (evt.getStateChange() == 2) {
+
             DefaultTableModel model = (DefaultTableModel) jt_tabla.getModel();
+            for (int i = 0; i < model.getRowCount(); i++) {
+                model.removeRow(i);
+            }
             if (cb_jtable.getSelectedItem().equals("Restaurante")) {
                 model.setColumnCount(0);
                 model.addColumn("Nombre");
@@ -937,7 +987,7 @@ public class Principal extends javax.swing.JFrame {
                 model.addColumn("Salida");
                 for (Lugar s : lista) {
                     if (s instanceof Restaurante) {
-                        Object[] row = {s.getNombre(),s.getDireccion(),s.getSecurity(),((Restaurante) s).getCategoria(),((Restaurante) s).getCalificacion(),s.getEntradas(),s.getSalidas()};
+                        Object[] row = {s.getNombre(), s.getDireccion(), s.getSecurity(), ((Restaurante) s).getCategoria(), ((Restaurante) s).getCalificacion(), s.getEntradas(), s.getSalidas()};
                         model.addRow(row);
                     }
                 }
@@ -954,19 +1004,21 @@ public class Principal extends javax.swing.JFrame {
                 model.addColumn("Salida");
                 for (Lugar s : lista) {
                     if (s instanceof cancha) {
-                        Object[] row = {s.getNombre(),s.getDireccion(),((cancha) s).getCategoria(),((cancha) s).getEstado(),s.getEntradas(),s.getSalidas()};
+                        Object[] row = {s.getNombre(), s.getDireccion(), ((cancha) s).getCategoria(), ((cancha) s).getEstado(), s.getEntradas(), s.getSalidas()};
                         model.addRow(row);
                     }
                 }
             }
             if (cb_jtable.getSelectedItem().equals("Carretera")) {
+                model.setColumnCount(0);
                 model.addColumn("Codigo");
                 model.addColumn("Distancia");
                 model.addColumn("Inicio");
                 model.addColumn("Fin");
                 for (Object s : listac) {
                     if (s instanceof Carretera) {
-                        
+                        Object[] row = {((Carretera) s).getCodigo(), ((Carretera) s).getDistancia(), ((Carretera) s).getInicio(), ((Carretera) s).getFinali()};
+                        model.addRow(row);
                     }
                 }
             }
@@ -985,12 +1037,23 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-        jd_jtable.setModal(true);
-        jd_jtable.pack();
-        jd_jtable.setLocationRelativeTo(this);
-        jd_jtable.setVisible(true);
-        
+      jd_list.setModal(true);
+      jd_list.pack();
+      jd_list.setLocationRelativeTo(this);
+      jd_list.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void cb_listItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_listItemStateChanged
+        DefaultListModel model = (DefaultListModel)jl_List.getModel();
+        Lugar c = (Lugar)cb_list.getSelectedItem();
+        ArrayList <Carretera>cd = c.getEntradas();
+        for (Carretera xc : cd) {
+            if (xc.getDistancia()<=50) {
+                model.addElement(xc);
+            }
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_listItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -1034,6 +1097,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_inicio;
     private javax.swing.JComboBox<String> cb_jtable;
     private javax.swing.JComboBox<String> cb_jtree;
+    private javax.swing.JComboBox<String> cb_list;
     private javax.swing.JComboBox<String> cb_termina;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1055,6 +1119,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1079,6 +1144,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTree jTree1;
     private javax.swing.JDialog jd_cancha;
@@ -1086,7 +1152,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_casa;
     private javax.swing.JDialog jd_jtable;
     private javax.swing.JDialog jd_jtree;
+    private javax.swing.JDialog jd_list;
     private javax.swing.JDialog jd_restaurante;
+    private javax.swing.JList<String> jl_List;
     private javax.swing.JSpinner jp_nivelcasa;
     private javax.swing.JSpinner jp_nivelres;
     private javax.swing.JTree jt_listar;
